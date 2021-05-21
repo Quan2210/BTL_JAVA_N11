@@ -5,51 +5,78 @@
  */
 package Model;
 
+import java.util.Objects;
+
 /**
  *
  * @author quang
  */
 public class DanhGia {
-     private String Madanhgia;
-     private int Manhom;
-     private Double Diem;
+     private String maDanhGia;
+     private int maNhom;
+     private Double diem;
 
     public DanhGia() {
     }
 
-    public DanhGia(String Madanhgia, int Manhom, Double Diem) {
-        this.Madanhgia = Madanhgia;
-        this.Manhom = Manhom;
-        this.Diem = Diem;
+    public DanhGia(String maDanhGia, int maNhom, Double diem) {
+        this.maDanhGia = maDanhGia;
+        this.maNhom = maNhom;
+        this.diem = diem;
     }
 
-    public String getMadanhgia() {
-        return Madanhgia;
+    public String getMaDanhGia() {
+        return maDanhGia;
     }
 
-    public void setMadanhgia(String Madanhgia) {
-        this.Madanhgia = Madanhgia;
-    }
-
-    public int getManhom() {
-        return Manhom;
-    }
-
-    public void setManhom(int Manhom) {
-        this.Manhom = Manhom;
+    public int getMaNhom() {
+        return maNhom;
     }
 
     public Double getDiem() {
-        return Diem;
+        return diem;
     }
 
-    public void setDiem(Double Diem) {
-        this.Diem = Diem;
+    public void setMaDanhGia(String maDanhGia) {
+        this.maDanhGia = maDanhGia;
+    }
+
+    public void setMaNhom(int maNhom) {
+        this.maNhom = maNhom;
+    }
+
+    public void setDiem(Double diem) {
+        this.diem = diem;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 97 * hash + Objects.hashCode(this.maDanhGia);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final DanhGia other = (DanhGia) obj;
+        if (!Objects.equals(this.maDanhGia, other.maDanhGia)) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "Detai{" + "Madanhgia=" + Madanhgia + ", Manhom=" + Manhom + ", Diem=" + Diem + '}';
+        return "DanhGia{" + "maDanhGia=" + maDanhGia + ", maNhom=" + maNhom + ", diem=" + diem + '}';
     }
-     
+    
 }

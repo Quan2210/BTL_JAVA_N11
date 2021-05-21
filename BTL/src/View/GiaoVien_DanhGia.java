@@ -126,7 +126,7 @@ public class GiaoVien_DanhGia extends javax.swing.JFrame {
         ArrayList<DanhGia> dsdg = ex.getDsDanhGia();
         for(int i: list){
             for(DanhGia j: dsdg){
-                if(i == j.getManhom()){
+                if(i == j.getMaNhom()){
                     listdg.add(j);
                 }
             }

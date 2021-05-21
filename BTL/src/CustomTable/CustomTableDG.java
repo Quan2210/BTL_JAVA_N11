@@ -35,7 +35,7 @@ public class CustomTableDG extends AbstractTableModel {
     public Object getValueAt(int i, int i1) {
         switch(i1)
         {
-            case 0: return dsdg.get(i).getManhom();
+            case 0: return dsdg.get(i).getMaNhom();
             case 1: return dsdg.get(i).getDiem();
             default: return null;
         }

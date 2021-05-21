@@ -1,15 +1,15 @@
-package Control;
+package CustomTable;
 
 import Model.ThongBao;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
-public class XemThongBaoCustomTable extends AbstractTableModel{
+public class CustomTableThongBao extends AbstractTableModel{
   private final String[] title;
   private final Class[] classes;
   ArrayList<ThongBao> list = new ArrayList<>();
 
-  public XemThongBaoCustomTable(ArrayList<ThongBao> list) {
+  public CustomTableThongBao(ArrayList<ThongBao> list) {
     this.classes = new Class[]{String.class, String.class, String.class};
     this.title = new String[]{"Mã thông báo", "Nội dung", "File kèm"};
     this.list = list;

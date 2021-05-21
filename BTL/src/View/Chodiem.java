@@ -36,7 +36,7 @@ public class Chodiem extends javax.swing.JFrame {
         dsDetai = ex.getDsDanhGia();
         for(int i: listmanhom){
             for(DanhGia j: dsDetai){
-                if(i == j.getManhom()){
+                if(i == j.getMaNhom()){
                     dsupdate.add(j);
                 }
             }
@@ -203,8 +203,8 @@ public class Chodiem extends javax.swing.JFrame {
         // TODO add your handling code here:
         int selectedRow = TableChodiem.getSelectedRow();
         DanhGia detai = dsDetai.get(selectedRow);
-        txtMadanhgia.setText(detai.getMadanhgia());
-        txtManhom.setText(String.valueOf(detai.getManhom()));
+        txtMadanhgia.setText(detai.getMaDanhGia());
+        txtManhom.setText(String.valueOf(detai.getMaNhom()));
         txtDiem.setText(String.valueOf(detai.getDiem()));
         
         

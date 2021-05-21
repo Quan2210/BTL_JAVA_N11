@@ -12,21 +12,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class XuatFileController {
   
-  private final ConnectDBQuan db= new ConnectDBQuan();
+  private final ConnectDB db= new ConnectDB();
   
   public void selectDSLop(ArrayList<Lop> dsLop){
     db.getDataLopQuan(dsLop);
@@ -36,7 +34,7 @@ public class XuatFileController {
     db.getDataDanhGia(dsDanhGia);
   }
   
-  public void xuatFileAction(XSSFWorkbook workbook, ArrayList<DanhGia> dsDanhGia, String tenLop) {
+  public void xuatFileAction(HSSFWorkbook workbook, ArrayList<DanhGia> dsDanhGia, String tenLop) {
     db.selectDanhGiaByTenLop(dsDanhGia, tenLop);
     initExcelFile(workbook, dsDanhGia, tenLop);
   }
@@ -58,17 +56,17 @@ public class XuatFileController {
     jComboBoxDSLop.setSelectedIndex(0);
   }
   
-  public void initExcelFile(XSSFWorkbook workbook, ArrayList<DanhGia> dsDanhGia, String tenLop){
+  public void initExcelFile(HSSFWorkbook workbook, ArrayList<DanhGia> dsDanhGia, String tenLop){
     //Create a cellstyle
     CellStyle cellStyle = workbook.createCellStyle();
     cellStyle.setAlignment(HorizontalAlignment.CENTER);
     cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
     
     //Create a spreadsheet
-    XSSFSheet sheet = workbook.createSheet("Đánh giá " + tenLop);
+    HSSFSheet sheet = workbook.createSheet("Đánh giá " + tenLop);
     
     //Create a row object
-    XSSFRow row;
+    HSSFRow row;
     
     //Create cell & setvalue
     row = sheet.createRow(0);
@@ -91,10 +89,10 @@ public class XuatFileController {
         Cell cell = row.createCell(j);
         cell.setCellStyle(cellStyle);
         if(cell.getColumnIndex() == 0) {
-          cell.setCellValue(dsDanhGia.get(i).getMadanhgia());
+          cell.setCellValue(dsDanhGia.get(i).getMaDanhGia());
         }
         if(cell.getColumnIndex() == 1) {
-          cell.setCellValue(dsDanhGia.get(i).getManhom());
+          cell.setCellValue(dsDanhGia.get(i).getMaNhom());
         }
         if(cell.getColumnIndex() == 2) {
           cell.setCellValue(dsDanhGia.get(i).getDiem());
@@ -110,7 +108,7 @@ public class XuatFileController {
     writingExcelFile(workbook, tenLop);
   }
   
-  public void writingExcelFile(XSSFWorkbook workbook, String tenLop){
+  public void writingExcelFile(HSSFWorkbook workbook, String tenLop){
 //    JFileChooser saveFile = new JFileChooser();
 //    saveFile.setDialogTitle("Save file");
 //    saveFile.setSelectedFile(new File(".xlsx"));
@@ -133,9 +131,9 @@ public class XuatFileController {
               Desktop.getDesktop().open(f);
         }
       } catch (FileNotFoundException ex) {
-        JOptionPane.showMessageDialog(null, ex, "Message", JOptionPane.CLOSED_OPTION);
+        JOptionPane.showMessageDialog(null, ex.getMessage(), "Message", JOptionPane.CLOSED_OPTION);
       } catch (IOException ex) {
-        JOptionPane.showMessageDialog(null, ex, "Message", JOptionPane.CLOSED_OPTION);
+        JOptionPane.showMessageDialog(null, ex.getMessage(), "Message", JOptionPane.CLOSED_OPTION);
       }
 //    }
   }

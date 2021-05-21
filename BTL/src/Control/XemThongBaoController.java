@@ -1,5 +1,6 @@
 package Control;
 
+import CustomTable.CustomTableThongBao;
 import Model.ThongBao;
 import View.XemThongBaoForm;
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ public class XemThongBaoController {
   
   public void loadTable(ArrayList<ThongBao> list, JTable jTableThongBao){
     selectDSThongBao(list);
-    jTableThongBao.setModel(new XemThongBaoCustomTable(list));
+    jTableThongBao.setModel(new CustomTableThongBao(list));
   }
   
   public void selectDSThongBao(ArrayList<ThongBao> dsThongBao) {

@@ -5,12 +5,12 @@ import Model.DanhGia;
 import Model.Lop;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 public class XuatFileForm extends javax.swing.JFrame {
 
   XuatFileController xuatFileController = new XuatFileController();
-  XSSFWorkbook workbook = new XSSFWorkbook();
+  HSSFWorkbook workbook = new HSSFWorkbook();
   ArrayList<Lop> dsLop = new ArrayList<>();
   ArrayList<DanhGia> dsDanhGia = new ArrayList<>();
   

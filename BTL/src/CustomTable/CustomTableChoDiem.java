@@ -38,8 +38,8 @@ public class CustomTableChoDiem extends AbstractTableModel  {
      @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch(columnIndex){
-            case 0: return dsDetai.get(rowIndex).getMadanhgia();
-            case 1: return dsDetai.get(rowIndex).getManhom();
+            case 0: return dsDetai.get(rowIndex).getMaDanhGia();
+            case 1: return dsDetai.get(rowIndex).getMaNhom();
             case 2: return dsDetai.get(rowIndex).getDiem();
             default : return null;
         }
